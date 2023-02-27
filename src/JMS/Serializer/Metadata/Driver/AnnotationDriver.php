@@ -47,7 +47,6 @@ use JMS\Serializer\Annotation\Until;
 use JMS\Serializer\Annotation\Since;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Inline;
-use JMS\Serializer\Annotation\ReadOnly;
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 use JMS\Serializer\Metadata\VirtualPropertyMetadata;
@@ -176,8 +175,6 @@ class AnnotationDriver implements DriverInterface
                         $propertyMetadata->xmlElementCData = $annot->cdata;
                     } elseif ($annot instanceof AccessType) {
                         $accessType = $annot->type;
-                    } elseif ($annot instanceof ReadOnly) {
-                       $propertyMetadata->readOnly = true;
                     } elseif ($annot instanceof Accessor) {
                         $accessor = array($annot->getter, $annot->setter);
                     } elseif ($annot instanceof Groups) {
